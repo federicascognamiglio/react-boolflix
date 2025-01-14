@@ -6,6 +6,7 @@ import AppCard from "./AppCard";
 function ItemsList() {
     // GlobalContext Variables
     const { moviesList, tvList } = useContext(GlobalContext);
+    // Variables
     const imagesBaseApi = "https://image.tmdb.org/t/p/";
 
     return (
