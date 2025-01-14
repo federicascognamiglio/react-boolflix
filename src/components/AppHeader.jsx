@@ -3,7 +3,7 @@ import GlobalContext from "../contexts/GlobalContext"
 
 function AppHeader() {
     // GlobalContext Variables
-    const { baseApiUrl, api_key, searchValue, setSearchValue } = useContext(GlobalContext);
+    const { searchValue, setSearchValue, getItems } = useContext(GlobalContext);
 
     return (
         <header>
@@ -11,7 +11,7 @@ function AppHeader() {
                 <div className="d-flex">
                     <h2>BOOLFLIX</h2>
                     <input type="search" value={searchValue} onChange={(event) => { setSearchValue(event.target.value) }} />
-                    <button>Search</button>
+                    <button onClick={() => {getItems()}}>Search</button>
                 </div>
             </nav>
         </header>
