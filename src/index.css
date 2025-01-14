@@ -10,3 +10,8 @@
 .d-flex {
   display: flex;
 }
+
+/* Main */
+.language-icon {
+  max-width: 20px;
+}
