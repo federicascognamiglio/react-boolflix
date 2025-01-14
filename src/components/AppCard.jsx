@@ -1,4 +1,4 @@
-function AppCard({ title, originalTitle, language, vote }) {
+function AppCard({ title, originalTitle, language, vote, img }) {
     // Language Icon Check
     let languageIcon;
     if (language === "en") {
@@ -12,10 +12,15 @@ function AppCard({ title, originalTitle, language, vote }) {
     return (
         <div className="col">
             <div className="card">
-                <h3>{title}</h3>
-                <h4>{originalTitle}</h4>
-                <img src={languageIcon} alt="Language Flag" className="language-icon" />
-                <span>{vote}</span>
+                <div className="card-img">
+                    <img src={img} alt="Movie Poster" />
+                </div>
+                <div className="card-info">
+                    <h3>{title}</h3>
+                    <h4>{originalTitle}</h4>
+                    <img src={languageIcon} alt="Language Flag" className="language-icon" />
+                    <span>{vote}</span>
+                </div>
             </div>
         </div>
     )
