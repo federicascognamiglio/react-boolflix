@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import GlobalContext from "../contexts/GlobalContext";
+// Components
 import AppCard from "./AppCard";
 
-
 function ItemsList() {
+    // GlobalContext Variables
     const { moviesList, tvList } = useContext(GlobalContext);
 
     return (
         <>
+            {/* Movies */}
             <h2>Movies</h2>
             <div className="row">
                 {moviesList.map((curMovie =>
@@ -17,8 +19,10 @@ function ItemsList() {
                         language={curMovie.original_language}
                         vote={curMovie.vote_average}
                     />))}
-                <h2>TV Shows</h2>
             </div>
+
+            {/* Tv Shows */}
+            <h2>TV Shows</h2>
             <div className="row">
                 {tvList.map((curTv =>
                     <AppCard key={curTv.id}

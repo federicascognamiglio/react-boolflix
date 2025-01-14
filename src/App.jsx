@@ -16,36 +16,28 @@ function App() {
 
   // FUNCTIONS
   /**
-   * API Call to get a list of movies and Tv Shows
-   * @param {string} item1 // list of movies
-   * @param {string} item2 // list of tv shows
+   * API Call to get a list items
+   * @param {string} items // items to get
    */
-  const getData = (item1, item2) => {
-    axios.get(`${baseApiUrl}${item1}`, {
+  const getData = (items) => {
+    axios.get(`${baseApiUrl}${items}`, {
       params: {
         api_key,
         query: searchValue
       }
     })
       .then((resp) => {
-        setMoviesList(resp.data.results)
-      })
-    axios.get(`${baseApiUrl}${item2}`, {
-      params: {
-        api_key,
-        query: searchValue
-      }
-    })
-      .then((resp) => {
-        setTvList(resp.data.results)
+        items === "movie" ? setMoviesList(resp.data.results) : setTvList(resp.data.results)
       })
   }
 
   /** API Call to get two lists of items */
   const getItems = () => {
-    getData("movie", "tv");
+    getData("movie");
+    getData("tv")
   }
 
+  // Provider Value
   const GlobalProviderValue = {
     getItems,
     moviesList,

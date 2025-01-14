@@ -1,4 +1,5 @@
 function AppCard({ title, originalTitle, language, vote }) {
+    // Language Icon Check
     let languageIcon;
     if (language === "en") {
         languageIcon = "./en.png"
@@ -13,7 +14,7 @@ function AppCard({ title, originalTitle, language, vote }) {
             <div className="card">
                 <h3>{title}</h3>
                 <h4>{originalTitle}</h4>
-                <img src={languageIcon} alt="Language Flag" className="language-icon"/>
+                <img src={languageIcon} alt="Language Flag" className="language-icon" />
                 <span>{vote}</span>
             </div>
         </div>

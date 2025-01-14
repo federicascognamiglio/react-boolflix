@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import GlobalContext from "../contexts/GlobalContext"
 
-function AppHeader({search, setSearch}) {
+function AppHeader({ search, setSearch }) {
     // GlobalContext Variables
     const { getItems } = useContext(GlobalContext);
 

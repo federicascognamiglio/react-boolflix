@@ -1,3 +1,4 @@
+// Components
 import ItemsList from "./ItemsList";
 
 function AppMain() {
