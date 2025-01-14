@@ -15,10 +15,13 @@ function App() {
   const api_key = "a9f909803b45afc5e7af99d2cdc61535";
 
   // FUNCTIONS
-
-  /** API Call to get a list of movies */
-  const getMovies = () => {
-    axios.get(`${baseApiUrl}movie`, {
+  /**
+   * API Call to get a list of movies and Tv Shows
+   * @param {string} item1 // list of movies
+   * @param {string} item2 // list of tv shows
+   */
+  const getData = (item1, item2) => {
+    axios.get(`${baseApiUrl}${item1}`, {
       params: {
         api_key,
         query: searchValue
@@ -27,11 +30,7 @@ function App() {
       .then((resp) => {
         setMoviesList(resp.data.results)
       })
-  };
-
-  /** API Call to get a list of Tv Shows */
-  const getTvShows = () => {
-    axios.get(`${baseApiUrl}tv`, {
+    axios.get(`${baseApiUrl}${item2}`, {
       params: {
         api_key,
         query: searchValue
@@ -42,14 +41,12 @@ function App() {
       })
   }
 
+  /** API Call to get two lists of items */
   const getItems = () => {
-    getMovies()
-    getTvShows()
+    getData("movie", "tv");
   }
 
   const GlobalProviderValue = {
-    searchValue,
-    setSearchValue,
     getItems,
     moviesList,
     tvList
@@ -58,7 +55,10 @@ function App() {
   return (
     <>
       <GlobalContext.Provider value={GlobalProviderValue}>
-        <AppHeader />
+        <AppHeader
+          search={searchValue}
+          setSearch={setSearchValue}
+        />
         <AppMain />
       </GlobalContext.Provider>
     </>
