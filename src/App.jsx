@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GlobalContext from "./contexts/GlobalContext";
+import AppHeader from "./components/AppHeader";
 
 function App() {
   // STATE VARIABLES
@@ -11,13 +12,14 @@ function App() {
   const GlobalProviderValue = {
     baseApiUrl,
     api_key,
-    searchValue
+    searchValue,
+    setSearchValue
   };
 
   return (
     <>
       <GlobalContext.Provider value={GlobalProviderValue}>
-    
+        <AppHeader />
       </GlobalContext.Provider>
     </>
   )
