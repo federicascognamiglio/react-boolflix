@@ -3,7 +3,10 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 
 
-function AppCard({ title, originalTitle, language, vote, img }) {
+function AppCard({ item }) {
+    // Variables
+    const imagesBaseApi = "https://image.tmdb.org/t/p/";
+
     // FUNCTIONS
     /**
      * Function that renders flag based on given language
@@ -44,13 +47,13 @@ function AppCard({ title, originalTitle, language, vote, img }) {
         <div className="col">
             <div className="card">
                 <div className="card-img">
-                    <img src={img} alt="Movie Poster" />
+                    <img src={`${imagesBaseApi}w342${item.poster_path}`} alt="Movie Poster" />
                 </div>
                 <div className="card-info">
-                    <h3>{title}</h3>
-                    <h4>{originalTitle}</h4>
-                    <img src={setLanguageFlag(language)} alt="Language Flag" className="language-icon" />
-                    {starRating(vote)}
+                    <h3>{item.title || item.name}</h3>
+                    <h4>{item.original_title || item.original_title}</h4>
+                    <img src={setLanguageFlag(item.original_language)} alt="Language Flag" className="language-icon" />
+                    {starRating(item.vote_average)}
                 </div>
             </div>
         </div>
