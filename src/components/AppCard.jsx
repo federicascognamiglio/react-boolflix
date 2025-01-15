@@ -10,7 +10,7 @@ function AppCard({ item }) {
     // FUNCTIONS
     /**
      * Function that renders flag based on given language
-     * @param {*} languageInitials
+     * @param {string} languageInitials
      * @returns {string} 
      */
     const setLanguageFlag = (languageInitials) => {
@@ -32,28 +32,33 @@ function AppCard({ item }) {
      * @returns {jsx}
      */
     const starRating = (rating) => {
-        const integerRating = Math.ceil((rating / 2) + 1);
+        const integerRating = Math.ceil(rating / 2);
         const maxRating = 5;
         return (
-            <div>
+            <li className="stars">
+                Voto:
                 {Array.from({ length: maxRating }, (_, index) => (
                     <span key={index}>{index < integerRating ? <FontAwesomeIcon icon={faStar} /> : <FontAwesomeIcon icon={regularStar} />}</span>
                 ))}
-            </div>
+            </li>
         )
     }
+
+    // Poster Images
+    const posterImg = (posterPath) => posterPath ? `${imagesBaseApi}w342${item.poster_path}` : "https://placehold.co/342x515"
 
     return (
         <div className="col">
             <div className="card">
-                <div className="card-img">
-                    <img src={`${imagesBaseApi}w342${item.poster_path}`} alt="Movie Poster" />
-                </div>
+                <img className="card-img" src={posterImg(item.poster_path)} alt="Movie Poster" />
                 <div className="card-info">
-                    <h3>{item.title || item.name}</h3>
-                    <h4>{item.original_title || item.original_title}</h4>
-                    <img src={setLanguageFlag(item.original_language)} alt="Language Flag" className="language-icon" />
-                    {starRating(item.vote_average)}
+                    <ul>
+                        <li>TITOLO: <span className="info-text">{item.title || item.name}</span></li>
+                        <li>Titolo originale: <span className="info-text">{item.original_title || item.original_title}</span></li>
+                        <li>Lingua: <img src={setLanguageFlag(item.original_language)} alt="Language Flag" className="language-icon" /></li>
+                        {starRating(item.vote_average)}
+                        <li>Overview: <span className="info-text">{item.overview.slice(0, 80) + "..."}</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
