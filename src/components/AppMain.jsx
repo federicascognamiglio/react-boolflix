@@ -7,18 +7,20 @@ function AppMain() {
     const { moviesList, tvList } = useGlobalContext();
 
     return (
-        <main>
-            <section>
-                <ItemsList
-                    items={moviesList}
-                    title="MOVIES"
-                />
-                <ItemsList
-                    items={tvList}
-                    title="TV SHOWS"
-                />
-            </section>
-        </main>
+        <div className="wrapper">
+            <main className="main">
+                <section className="content-section">
+                    <ItemsList
+                        items={moviesList}
+                        title="MOVIES"
+                    />
+                    <ItemsList
+                        items={tvList}
+                        title="TV SHOWS"
+                    />
+                </section>
+            </main>
+        </div>
     )
 }
 

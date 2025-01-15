@@ -11,11 +11,12 @@ function AppHeader() {
     const handleKeyUp = (event) => event.key === "Enter" && getItems(searchValue);
 
     return (
-        <header>
-            <nav>
-                <div className="d-flex">
-                    <h2>BOOLFLIX</h2>
+        <header className="header">
+            <nav className="d-flex justify-between align-center">
+                <h2 className="nav-brand">BOOLFLIX</h2>
+                <div>
                     <input type="search"
+                        placeholder="Search..."
                         value={searchValue}
                         onChange={(event) => { setSearchValue(event.target.value) }}
                         onKeyUp={handleKeyUp}
