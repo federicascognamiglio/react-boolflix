@@ -16,12 +16,17 @@ function AppHeader() {
                 <h2 className="nav-brand">BOOLFLIX</h2>
                 <div>
                     <input type="search"
+                        className="search-bar"
                         placeholder="Search..."
                         value={searchValue}
                         onChange={(event) => { setSearchValue(event.target.value) }}
                         onKeyUp={handleKeyUp}
                     />
-                    <button onClick={() => { getItems(searchValue) }}>Search</button>
+                    <button
+                        className="btn"
+                        onClick={() => { getItems(searchValue) }}>
+                        Search
+                    </button>
                 </div>
             </nav>
         </header>

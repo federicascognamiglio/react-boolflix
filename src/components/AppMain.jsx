@@ -9,16 +9,18 @@ function AppMain() {
     return (
         <div className="wrapper">
             <main className="main">
-                <section className="content-section">
-                    <ItemsList
-                        items={moviesList}
-                        title="MOVIES"
-                    />
-                    <ItemsList
-                        items={tvList}
-                        title="TV SHOWS"
-                    />
-                </section>
+                <div className="container">
+                    <section className="content-section">
+                        <ItemsList
+                            items={moviesList}
+                            title="MOVIES"
+                        />
+                        <ItemsList
+                            items={tvList}
+                            title="TV SHOWS"
+                        />
+                    </section>
+                </div>
             </main>
         </div>
     )
